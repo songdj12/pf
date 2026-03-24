@@ -324,11 +324,33 @@
             background: rgba(255,255,255,0.1); color: #e2e8f0;
             border: 1px solid rgba(255,255,255,0.2);
         }
-        /* ── 아이디어상 배지 영역 ── */
         .badge-idea {
             background: rgba(167,139,250,0.15); color: #a78bfa;
             border: 1px solid rgba(167,139,250,0.3);
             box-shadow: 0 0 15px rgba(167,139,250,0.1);
+        }
+        .badge-special {
+            background: rgba(245,158,11,0.15); color: #f59e0b;
+            border: 1px solid rgba(245,158,11,0.3);
+            box-shadow: 0 0 15px rgba(245,158,11,0.1);
+        }
+
+        /* ── Planning Doc Button ── */
+        .doc-link-btn {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            border-radius: 100px;
+            font-size: 0.8rem; color: var(--text-main);
+            text-decoration: none; margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+        .doc-link-btn:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px var(--accent-glow);
         }
 
         /* ── Footer ── */
@@ -508,11 +530,13 @@
                     <div class="cert-item"><span class="item-name">GTQ Photoshop 1급</span><span>2017.02</span></div>
                 </div>
 
-                <!-- Awards — 3개 구성하기 -->
                 <div class="bento-card col-span-4">
-                  
                     <div class="card-title"><i class="fas fa-trophy"></i> Awards</div>
                     
+                    <div class="award-item" style="flex-direction:column; gap:4px; margin-top:10px;">
+                        <span class="item-name">신규 크리에이티브 프로젝트 (2025)</span>
+                        <span style="color:#f59e0b;">특별상 — "미래를 잇는 경험"</span>
+                    </div>
                     <div class="award-item" style="flex-direction:column; gap:4px; margin-top:10px;">
                         <span class="item-name">아모레퍼시픽 공모전 (2026)</span>
                         <span style="color:#a78bfa;">아이디어상 — "보이지 않는 곳의 아름다움"</span>
@@ -520,13 +544,11 @@
                     <div class="award-item" style="flex-direction:column; gap:4px; margin-top:10px;">
                         <span class="item-name">Quiznos AI 영상 공모전 (2025)</span>
                         <span style="color:var(--text-muted);">장려상 — "Quiznos Playlist"</span>
-                    </div>                    
+                    </div>                  
                     <div class="award-item" style="flex-direction:column; gap:4px;">
                         <span class="item-name">하루야채 AI 영상 공모전 (2025)</span>
                         <span style="color:var(--accent-color);">대상 — "야채들이 싫어하는 광고"</span>
                     </div>
-
-
                 </div>
 
             </div>
@@ -541,10 +563,35 @@
                 </p>
             </div>
             <div class="bento-grid">
-                <!-- Video 1: 아모레퍼시픽 — 아이디어상 -->
+                <!-- Video 1: 탬버린즈 (최상단 배치 + 기획안 버튼) -->
                 <div class="bento-card col-span-4">
                     <div class="video-wrapper">
-                     
+                        <iframe src="https://www.youtube.com/embed/pLTrBUoKM7E?si=XDwjqTLOOLRycg8l"
+                            title="Tamburins Fan-made Project" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="video-content-box">
+                        <h3 style="color:var(--text-main); font-size:1.1rem; margin:0;">TAMBURINS – Echo the Echo</h3>
+                        
+                        <div style="display:flex; gap:8px; align-items:center;">
+                            <span class="award-pill badge-special">팬메이드 영상</span>
+                            <!-- 기획안 연결 버튼 -->
+                            <a href="https://drive.google.com/drive/folders/1h4-Z3s2MvLg1QT_3J-ElSsdFKr4hf-qJ?usp=drive_link" target="_blank" class="doc-link-btn">
+                                <i class="fas fa-file-alt"></i> 기획안 보기
+                            </a>
+                        </div>
+
+                        <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.5;">
+                            Echo the Echo 신규 컬렉션 기획안 및 티저 영상입니다.
+                            Kling, SUNO 등을 활용하여 감각적인 무드의 팬메이드 티저 영상을 제작하고 상용 서비스 기획안을 도출했습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Video 2: 아모레퍼시픽 — 아이디어상 -->
+                <div class="bento-card col-span-4">
+                    <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/c0Klrff5vko?si=n1Bth1J9JQOBGAp_"
                             title="아모레퍼시픽 보이지 않는 곳의 아름다움" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -560,9 +607,7 @@
                     </div>
                 </div>
                 
-
-
-                <!-- Video 2: Quiznos — 장려상 -->
+                <!-- Video 3: Quiznos — 장려상 -->
                 <div class="bento-card col-span-4">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/0Cp4mJeq6Uc?rel=0"
@@ -579,7 +624,8 @@
                         </p>
                     </div>
                 </div>
-                <!-- Video 3: 하루야채 — 대상 -->
+
+                <!-- Video 4: 하루야채 — 대상 -->
                 <div class="bento-card col-span-4">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/d9bodJRO_RY?rel=0"
@@ -596,7 +642,6 @@
                         </p>
                     </div>
                 </div>
-
 
             </div>
         </section>
@@ -812,17 +857,14 @@
         // ── Email Copy + Toast ──
         function copyEmail() {
             const email = 'songdj12@gmail.com';
-            navigator.clipboard.writeText(email)
-                .then(showToast)
-                .catch(() => {
-                    const el = document.createElement('textarea');
-                    el.value = email;
-                    document.body.appendChild(el);
-                    el.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(el);
-                    showToast();
-                });
+            // iFrame 호환성을 위해 execCommand('copy') 사용
+            const el = document.createElement('textarea');
+            el.value = email;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            showToast();
         }
 
         function showToast() {
