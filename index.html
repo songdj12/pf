@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dong Jun SONG - Portfolio</title>
-    <meta name="description" content="Service Planner & Business Strategist Portfolio">
+    <meta name="description" content="Content Planner Portfolio">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,19 +13,25 @@
 
     <style>
         :root {
-            --bg-color: #050505;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --card-hover-border: rgba(255, 255, 255, 0.2);
-            --text-main: #ffffff;
-            --text-muted: #888888;
-            --accent-color: #3b82f6;
-            --accent-glow: rgba(59, 130, 246, 0.5);
+            --bg-color: #111111;
+            --card-bg: rgba(255, 248, 240, 0.04);
+            --card-border: rgba(255, 244, 235, 0.10);
+            --card-hover-border: rgba(214, 196, 255, 0.32);
+            --text-main: #f7f3ee;
+            --text-muted: #b7aea4;
+            --accent-color: #b79dff;
+            --accent-glow: rgba(183, 157, 255, 0.35);
+            --special-gold: #d6a86a;
+            --special-violet: #c6b3ff;
+            --special-pink: #d98ca8;
+            --special-pink-soft: #c7aeb8;
             --rolling-height: 80px;
             --rolling-font-size: 2.5rem;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg-color);
@@ -35,13 +41,12 @@
             line-height: 1.6;
         }
 
-        /* ── Ambient & Spotlight ── */
         .ambient-bg {
             position: fixed; top: 0; left: 0;
             width: 100vw; height: 100vh;
             background:
-                radial-gradient(circle at 15% 50%, rgba(59,130,246,0.08), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(139,92,246,0.08), transparent 25%);
+                radial-gradient(circle at 15% 50%, rgba(183,157,255,0.10), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(214,196,255,0.10), transparent 25%);
             z-index: -1; pointer-events: none;
         }
 
@@ -55,14 +60,12 @@
             );
         }
 
-        /* ── Layout ── */
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
-        /* ── Header / Nav ── */
         header {
             position: fixed; top: 20px; left: 50%;
             transform: translateX(-50%); z-index: 100;
-            background: rgba(10,10,10,0.7);
+            background: rgba(18,18,18,0.78);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             padding: 10px 24px; border-radius: 100px;
@@ -76,17 +79,15 @@
         }
         .nav-link:hover, .nav-link.active { color: var(--text-main); }
 
-        /* ── Sections ── */
         section {
-            padding: 60px 0 30px;
+            padding: 72px 0 36px;
             opacity: 0; transform: translateY(20px);
             transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         section.visible { opacity: 1; transform: translateY(0); }
 
-        /* ── Hero ── */
         .hero {
-            min-height: 90vh;
+            min-height: 95vh;
             display: flex; flex-direction: column;
             justify-content: center; align-items: flex-start;
             padding-top: 0;
@@ -94,15 +95,14 @@
 
         .static-name {
             font-size: 5rem; font-weight: 800;
-            letter-spacing: -0.02em; line-height: 1; margin-bottom: 30px;
-            background: linear-gradient(to right, #ffffff, #999999);
+            letter-spacing: -0.02em; line-height: 1; margin-bottom: 28px;
+            background: linear-gradient(to right, #fff8f2, #c9bfb5);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        /* ── Rolling Text ── */
         .rolling-container {
             height: var(--rolling-height);
-            margin-bottom: 2rem;
+            margin-bottom: 1.8rem;
             display: flex; align-items: center;
         }
 
@@ -127,37 +127,36 @@
             height: var(--rolling-height);
             display: flex; align-items: center;
             white-space: nowrap; line-height: 1; flex-shrink: 0;
-            background: linear-gradient(90deg, #ffffff 0%, #a0aec0 100%);
+            background: linear-gradient(90deg, #fff8f2 0%, #c7b7ff 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
         @keyframes scrollUp {
-            0%        { transform: translateY(0); }
-            20%, 33%  { transform: translateY(-25%); }
-            53%, 66%  { transform: translateY(-50%); }
-            86%, 99%  { transform: translateY(-75%); }
-            100%      { transform: translateY(0); }
+            0% { transform: translateY(0); }
+            20%, 33% { transform: translateY(-25%); }
+            53%, 66% { transform: translateY(-50%); }
+            86%, 99% { transform: translateY(-75%); }
+            100% { transform: translateY(0); }
         }
 
         .hero p {
-            font-size: 1.25rem; color: var(--text-muted);
-            max-width: 600px; margin-bottom: 2rem; font-weight: 300;
+            font-size: 1.2rem; color: var(--text-muted);
+            max-width: 700px; margin-bottom: 2rem; font-weight: 300;
         }
 
-        /* ── Status Badge ── */
         .status-badge {
             display: inline-flex; align-items: center; gap: 8px;
             padding: 8px 20px;
-            background: rgba(59,130,246,0.05);
-            border: 1px solid rgba(59,130,246,0.2);
+            background: rgba(183,157,255,0.08);
+            border: 1px solid rgba(183,157,255,0.24);
             border-radius: 100px; color: var(--accent-color);
             font-size: 0.9rem; font-weight: 500; margin-bottom: 2rem;
             transition: all 0.3s ease; cursor: default;
         }
         .status-badge:hover {
-            background: rgba(59,130,246,0.15);
+            background: rgba(183,157,255,0.16);
             transform: translateY(-2px);
-            box-shadow: 0 0 15px rgba(59,130,246,0.2);
+            box-shadow: 0 0 15px rgba(183,157,255,0.18);
         }
 
         .status-dot {
@@ -168,12 +167,11 @@
         }
 
         @keyframes pulse {
-            0%   { opacity: 1; transform: scale(1); }
-            50%  { opacity: 0.5; transform: scale(1.2); }
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
             100% { opacity: 1; transform: scale(1); }
         }
 
-        /* ── Bento Grid ── */
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
@@ -191,38 +189,36 @@
         .bento-card:hover {
             border-color: var(--card-hover-border);
             transform: translateY(-2px);
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,248,240,0.06);
         }
 
-        .col-span-4  { grid-column: span 4; }
-        .col-span-6  { grid-column: span 6; }
-        .col-span-8  { grid-column: span 8; }
+        .col-span-4 { grid-column: span 4; }
+        .col-span-6 { grid-column: span 6; }
+        .col-span-8 { grid-column: span 8; }
         .col-span-12 { grid-column: span 12; }
 
         .card-title {
             font-size: 1.2rem; font-weight: 600;
-            margin-bottom: 1.5rem; color: var(--text-main);
+            margin-bottom: 1.2rem; color: var(--text-main);
             display: flex; align-items: center; gap: 10px;
         }
-        .card-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
+        .card-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.75; }
 
         .card-list { list-style: none; padding: 0; margin: 0; }
         .card-list li {
-            position: relative; padding-left: 20px;
-            margin-bottom: 10px; font-size: 0.9rem; color: var(--text-muted);
+            position: relative; padding-left: 18px;
+            margin-bottom: 10px; font-size: 0.92rem; color: var(--text-muted);
         }
         .card-list li::before { content: '•'; position: absolute; left: 0; color: var(--accent-color); }
 
-        /* ── Award / Cert Items ── */
         .award-item, .cert-item {
-            display: flex; justify-content: space-between;
+            display: flex; justify-content: space-between; gap: 16px;
             margin-bottom: 12px; font-size: 0.9rem; color: var(--text-muted);
             border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px;
         }
         .award-item:last-child, .cert-item:last-child { border-bottom: none; }
-        .item-name { color: #ddd; font-weight: 500; }
+        .item-name { color: #e8dfd7; font-weight: 500; }
 
-        /* ── Timeline ── */
         .timeline { position: relative; padding-left: 20px; }
         .timeline::before {
             content: ''; position: absolute; left: 0; top: 10px; bottom: 0;
@@ -230,7 +226,7 @@
             background: linear-gradient(to bottom, var(--accent-color), rgba(255,255,255,0.1));
         }
 
-        .timeline-item { margin-bottom: 60px; position: relative; padding-left: 40px; }
+        .timeline-item { margin-bottom: 56px; position: relative; padding-left: 40px; }
         .timeline-dot {
             position: absolute; left: -4px; top: 0;
             width: 9px; height: 9px;
@@ -240,63 +236,31 @@
         .timeline-date {
             font-size: 0.85rem; color: var(--accent-color);
             margin-bottom: 8px; font-weight: 600; display: inline-block;
-            background: rgba(59,130,246,0.1); padding: 2px 8px; border-radius: 4px;
+            background: rgba(183,157,255,0.12); padding: 2px 8px; border-radius: 4px;
         }
-        .timeline-role { font-size: 1.5rem; font-weight: 700; color: var(--text-main); margin-bottom: 4px; }
-        .timeline-company { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 16px; }
+        .timeline-role { font-size: 1.45rem; font-weight: 700; color: var(--text-main); margin-bottom: 4px; }
+        .timeline-company { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 16px; }
 
         .timeline-desc ul { list-style: none; }
         .timeline-desc li {
-            position: relative; padding-left: 20px;
-            margin-bottom: 8px; color: #ccc; font-size: 0.95rem;
+            position: relative; padding-left: 18px;
+            margin-bottom: 8px; color: #d8d0c8; font-size: 0.95rem;
         }
         .timeline-desc li::before { content: '•'; position: absolute; left: 0; color: var(--accent-color); }
 
-        /* ── Skill Tags ── */
         .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
         .tag {
             padding: 6px 14px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,248,240,0.05);
             border: 1px solid var(--card-border);
-            border-radius: 100px; font-size: 0.85rem; color: #ddd; transition: all 0.2s;
+            border-radius: 100px; font-size: 0.85rem; color: #e4dbd2; transition: all 0.2s;
         }
-        .tag:hover { background: rgba(255,255,255,0.1); border-color: var(--accent-color); color: #fff; }
+        .tag:hover { background: rgba(255,248,240,0.1); border-color: var(--accent-color); color: #fff; }
 
-        /* ── Project Cards ── */
-        .project-card { display: flex; flex-direction: column; height: 100%; }
-
-        .project-meta { display: flex; gap: 12px; margin-bottom: 20px; }
-        .stat-box {
-            background: rgba(59,130,246,0.05);
-            padding: 12px; border-radius: 8px;
-            flex: 1; text-align: center;
-        }
-        .stat-value {
-            display: block; font-size: 1.1rem; font-weight: 700;
-            color: var(--accent-color); margin-bottom: 4px;
-        }
-        .stat-label { font-size: 0.75rem; color: var(--text-muted); }
-
-        .retro-box {
-            margin-top: 20px;
-            background: rgba(255,50,150,0.05);
-            border: 1px solid rgba(255,50,150,0.2);
-            padding: 16px; border-radius: 12px;
-        }
-        .retro-title {
-            color: #ff66a3; font-size: 0.85rem; font-weight: 700;
-            margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;
-        }
-        .retro-content p {
-            font-size: 0.85rem; color: #ccaabb;
-            margin-bottom: 8px; line-height: 1.5;
-        }
-
-        /* ── Video ── */
         .video-wrapper {
             position: relative; padding-bottom: 56.25%;
             height: 0; overflow: hidden; border-radius: 16px;
-            background: #000; margin-bottom: 20px;
+            background: #000; margin-bottom: 18px;
             border: 1px solid var(--card-border);
         }
         .video-wrapper iframe {
@@ -306,40 +270,38 @@
 
         .video-content-box {
             display: flex; flex-direction: column;
-            align-items: flex-start; padding: 15px 5px 0;
+            align-items: flex-start; padding: 10px 4px 0;
         }
 
-        /* ── Award Pills ── */
         .award-pill {
             display: inline-block; padding: 4px 10px;
             border-radius: 100px; font-size: 0.75rem;
             font-weight: 600; margin: 6px 0 12px; letter-spacing: -0.01em;
         }
         .badge-grand {
-            background: rgba(59,130,246,0.15); color: var(--accent-color);
-            border: 1px solid rgba(59,130,246,0.3);
-            box-shadow: 0 0 15px rgba(59,130,246,0.1);
+            background: rgba(183,157,255,0.16); color: var(--accent-color);
+            border: 1px solid rgba(183,157,255,0.34);
+            box-shadow: 0 0 15px rgba(183,157,255,0.12);
         }
         .badge-honorable {
-            background: rgba(255,255,255,0.1); color: #e2e8f0;
-            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,248,240,0.1); color: #ebe4dd;
+            border: 1px solid rgba(255,248,240,0.2);
         }
         .badge-idea {
-            background: rgba(167,139,250,0.15); color: #a78bfa;
-            border: 1px solid rgba(167,139,250,0.3);
-            box-shadow: 0 0 15px rgba(167,139,250,0.1);
+            background: rgba(198,179,255,0.16); color: var(--special-violet);
+            border: 1px solid rgba(198,179,255,0.3);
+            box-shadow: 0 0 15px rgba(198,179,255,0.1);
         }
         .badge-special {
-            background: rgba(245,158,11,0.15); color: #f59e0b;
-            border: 1px solid rgba(245,158,11,0.3);
-            box-shadow: 0 0 15px rgba(245,158,11,0.1);
+            background: rgba(214,168,106,0.16); color: var(--special-gold);
+            border: 1px solid rgba(214,168,106,0.3);
+            box-shadow: 0 0 15px rgba(214,168,106,0.1);
         }
 
-        /* ── Planning Doc Button ── */
         .doc-link-btn {
             display: inline-flex; align-items: center; gap: 6px;
             padding: 6px 14px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 248, 240, 0.05);
             border: 1px solid var(--card-border);
             border-radius: 100px;
             font-size: 0.8rem; color: var(--text-main);
@@ -351,14 +313,41 @@
             border-color: var(--accent-color);
             transform: translateY(-2px);
             box-shadow: 0 0 15px var(--accent-glow);
+            color: #111111;
         }
 
-        /* ── Footer ── */
+        .project-meta { display: flex; gap: 12px; margin-bottom: 20px; }
+        .stat-box {
+            background: rgba(183,157,255,0.08);
+            padding: 12px; border-radius: 8px;
+            flex: 1; text-align: center;
+        }
+        .stat-value {
+            display: block; font-size: 1.1rem; font-weight: 700;
+            color: var(--accent-color); margin-bottom: 4px;
+        }
+        .stat-label { font-size: 0.75rem; color: var(--text-muted); }
+
+        .retro-box {
+            margin-top: 20px;
+            background: rgba(217,140,168,0.08);
+            border: 1px solid rgba(217,140,168,0.20);
+            padding: 16px; border-radius: 12px;
+        }
+        .retro-title {
+            color: var(--special-pink); font-size: 0.85rem; font-weight: 700;
+            margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .retro-content p {
+            font-size: 0.85rem; color: var(--special-pink-soft);
+            margin-bottom: 8px; line-height: 1.6;
+        }
+
         .footer-section {
             position: relative; margin-top: 60px;
             padding: 80px 0 40px;
             border-top: 1px solid var(--card-border);
-            background: linear-gradient(to top, rgba(59,130,246,0.05), transparent);
+            background: linear-gradient(to top, rgba(183,157,255,0.06), transparent);
             text-align: center; overflow: hidden;
         }
 
@@ -367,12 +356,12 @@
             margin-bottom: 1.5rem; font-weight: 500;
             letter-spacing: 1px; text-transform: uppercase;
             display: inline-block; padding: 4px 12px;
-            background: rgba(59,130,246,0.1); border-radius: 20px;
+            background: rgba(183,157,255,0.12); border-radius: 20px;
         }
 
         .footer-cta-title {
-            font-size: 3.5rem; font-weight: 800; margin-bottom: 3rem;
-            background: linear-gradient(135deg, #ffffff 30%, var(--accent-color) 100%);
+            font-size: 3.2rem; font-weight: 800; margin-bottom: 3rem;
+            background: linear-gradient(135deg, #fff8f2 30%, var(--accent-color) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             letter-spacing: -0.02em; line-height: 1.2;
         }
@@ -388,13 +377,14 @@
         }
         .contact-btn:hover {
             transform: scale(1.05) translateY(-2px);
-            box-shadow: 0 0 40px rgba(255,255,255,0.2);
+            box-shadow: 0 0 40px rgba(255,248,240,0.18);
         }
 
         .contact-info-row {
             margin-top: 3rem; display: flex;
             justify-content: center; gap: 2rem;
             color: var(--text-muted); font-size: 0.95rem;
+            flex-wrap: wrap;
         }
         .contact-item {
             display: flex; align-items: center; gap: 8px;
@@ -403,37 +393,48 @@
         .contact-item:hover { color: var(--text-main); }
 
         .footer-copyright {
-            margin-top: 80px; font-size: 0.8rem; color: #555;
+            margin-top: 80px; font-size: 0.8rem; color: #6e655d;
             display: flex; justify-content: space-between; align-items: center;
             border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px;
         }
 
-        /* ── Toast ── */
         .toast {
             position: fixed; bottom: 30px; left: 50%;
             transform: translateX(-50%) translateY(100px);
-            background: rgba(59,130,246,0.9); color: white;
+            background: rgba(183,157,255,0.92); color: #111111;
             padding: 12px 24px; border-radius: 50px;
-            font-size: 0.9rem; font-weight: 500;
+            font-size: 0.9rem; font-weight: 600;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             opacity: 0; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: 10000; pointer-events: none;
         }
         .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
-        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            .col-span-4, .col-span-6, .col-span-8, .col-span-12 { grid-column: span 1; }
+        }
+
         @media (max-width: 768px) {
             :root {
                 --rolling-height: 50px;
-                --rolling-font-size: 1.8rem;
+                --rolling-font-size: 1.55rem;
             }
-            .static-name { font-size: 3.5rem; }
-            .bento-grid { display: flex; flex-direction: column; }
-            .col-span-4, .col-span-6, .col-span-8, .col-span-12 { width: 100%; }
-            header { width: 90%; justify-content: space-around; }
-            .footer-cta-title { font-size: 2.5rem; }
+            .container { padding: 0 18px; }
+            header { width: calc(100% - 36px); justify-content: space-around; gap: 14px; padding: 10px 16px; }
+            .nav-link { font-size: 0.82rem; }
+            .static-name { font-size: 3.2rem; }
+            .hero p { font-size: 1rem; }
+            .rolling-container { flex-direction: column; align-items: flex-start; height: auto; gap: 10px; }
+            .rolling-prefix { margin-right: 0; font-size: 1rem; }
+            .rolling-mask { height: 50px; }
+            .bento-card { padding: 24px; }
+            .timeline-item { padding-left: 28px; }
+            .timeline-role { font-size: 1.15rem; }
+            .footer-cta-title { font-size: 2.2rem; }
             .contact-info-row { flex-direction: column; gap: 1rem; }
             .footer-copyright { flex-direction: column; gap: 10px; text-align: center; }
+            .project-meta { flex-direction: column; }
         }
     </style>
 </head>
@@ -443,17 +444,16 @@
     <div class="ambient-bg"></div>
     <div class="toast" id="toast">✅ 이메일 주소가 복사되었습니다!</div>
 
-    <!-- Navigation -->
     <header>
-        <a href="#home"     class="nav-link active">Home</a>
-        <a href="#about"    class="nav-link">About</a>
-        <a href="#career"   class="nav-link">Career</a>
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#featured" class="nav-link">AI Creative</a>
+        <a href="#career" class="nav-link">Career</a>
         <a href="#projects" class="nav-link">Projects</a>
     </header>
 
     <div class="container">
 
-        <!-- ── HERO ── -->
         <section id="home" class="hero">
             <div class="status-badge">
                 <div class="status-dot"></div>
@@ -465,26 +465,28 @@
                 <span class="rolling-prefix">Keywords</span>
                 <div class="rolling-mask">
                     <div class="rolling-wrapper">
-                        <div class="rolling-text">서비스 기획</div>
-                        <div class="rolling-text">컨텐츠 기획</div>
-                        <div class="rolling-text">마케팅</div>
-                        <div class="rolling-text">커뮤니케이션</div>
+                        <div class="rolling-text">콘텐츠 전략</div>
+                        <div class="rolling-text">브랜드 메시지</div>
+                        <div class="rolling-text">AI 콘텐츠</div>
+                        <div class="rolling-text">마케팅 기획</div>
                     </div>
                 </div>
             </div>
 
-            <p>사용자 경험과 비즈니스 목표를 잇는 서비스 기획자.<br>
-            고객의 숨겨진 Pain Point를 발굴하고, 데이터를 기반으로 구현 가능한 서비스와 기능 로드맵을 설계합니다.</p>
+            <p>
+                안녕하세요, 송동준입니다.<br>
+                브랜드의 문제를 콘텐츠로 푸는 기획자입니다.<br>
+                B2B IT 서비스부터 B2C 브랜드, 글로벌 IP까지 다양한 산업에서 브랜드의 언어를 고객의 언어로 번역해 콘텐츠와 캠페인으로 설계해왔습니다.
+            </p>
 
             <div class="skill-tags" style="margin-top: 1rem;">
-                <span class="tag">Service Planning</span>
-                <span class="tag">Business Strategy</span>
-                <span class="tag">AI/Data</span>
-                <span class="tag">UX Design</span>
+                <span class="tag">Content Planning</span>
+                <span class="tag">Brand Message</span>
+                <span class="tag">AI Contents</span>
+                <span class="tag">Marketing Strategy</span>
             </div>
         </section>
 
-        <!-- ── ABOUT ── -->
         <section id="about">
             <h2 style="margin-bottom: 2rem; font-size: 2rem;">About & Qualifications</h2>
             <div class="bento-grid">
@@ -492,16 +494,15 @@
                 <div class="bento-card col-span-8">
                     <div class="card-title"><i class="fas fa-user-circle"></i> Introduction</div>
                     <p class="card-desc">
-                        고객의 Pain Point를 인사이트로 전환하고 구현 가능한 서비스 콘셉트와 기능 로드맵을 설계합니다.
-                        영업·기술·운영 등 유관부서와의 촘촘한 커뮤니케이션으로 이해관계자의 목표를 조율합니다.
+                        어릴 때부터 옷으로 나를 표현하던 아이였습니다. 그 표현하고 싶은 마음은 지금, 브랜드의 메시지를 콘텐츠로 설계하는 힘이 되었습니다. 주어진 콘텐츠를 만드는 것보다 왜 이 메시지여야 하는지, 어떤 채널에서 어떤 방식으로 닿아야 하는지를 구조적으로 설계하는 일을 좋아합니다.
                     </p>
                 </div>
 
                 <div class="bento-card col-span-4">
                     <div class="card-title"><i class="fas fa-graduation-cap"></i> Education</div>
                     <div class="card-desc" style="font-size: 0.9rem;">
-                        <p style="margin-bottom: 8px;"><strong>한국방송통신대학교</strong><br><span style="color:#666;">컴퓨터과학과 (2021.03 ~ 재학)</span></p>
-                        <p style="margin-bottom: 8px;"><strong>배재대학교</strong><br><span style="color:#666;">의류패션학과, 경영학 (2012~2018)</span><br>GPA: 3.37/4.5</p>
+                        <p style="margin-bottom: 8px;"><strong>한국방송통신대학교</strong><br><span style="color:#8a8178;">컴퓨터과학과 (2021.03 ~ 재학)</span></p>
+                        <p style="margin-bottom: 8px;"><strong>배재대학교</strong><br><span style="color:#8a8178;">의류패션학과, 경영학 (2012~2018)</span><br>GPA: 3.37/4.5</p>
                         <p><strong>한성고등학교</strong> (2009~2011)</p>
                     </div>
                 </div>
@@ -513,10 +514,10 @@
                         <span class="tag">Imagen</span>
                         <span class="tag">Veo</span>
                         <span class="tag">Midjourney</span>
+                        <span class="tag">Kling</span>
+                        <span class="tag">SUNO</span>
                         <span class="tag">Google Analytics</span>
-                        <span class="tag">Tableau</span>
                         <span class="tag">Figma</span>
-                        <span class="tag">Adobe XD</span>
                         <span class="tag">Slack / Asana</span>
                     </div>
                 </div>
@@ -531,20 +532,19 @@
                 </div>
 
                 <div class="bento-card col-span-4">
-                    <div class="card-title"><i class="fas fa-trophy"></i> Awards & Creative</div>
-                    
+                    <div class="card-title"><i class="fas fa-trophy"></i> Awards </div>
                     <div class="award-item" style="flex-direction:column; gap:4px; margin-top:10px;">
-                        <span class="item-name">탬버린즈 팬메이드 영상</span>
-                        <span style="color:#f59e0b;"> 팬메이드 - "ECHO THE ECHO 티저"</span>
+                       
+                        
                     </div>
                     <div class="award-item" style="flex-direction:column; gap:4px; margin-top:10px;">
                         <span class="item-name">아모레퍼시픽 공모전 (2026)</span>
-                        <span style="color:#a78bfa;">아이디어상 — "보이지 않는 곳의 아름다움"</span>
+                        <span style="color:var(--special-violet);">아이디어상 — "보이지 않는 곳의 아름다움"</span>
                     </div>
                     <div class="award-item" style="flex-direction:column; gap:4px; margin-top:10px;">
                         <span class="item-name">Quiznos AI 영상 공모전 (2025)</span>
                         <span style="color:var(--text-muted);">장려상 — "Quiznos Playlist"</span>
-                    </div>                  
+                    </div>
                     <div class="award-item" style="flex-direction:column; gap:4px;">
                         <span class="item-name">하루야채 AI 영상 공모전 (2025)</span>
                         <span style="color:var(--accent-color);">대상 — "야채들이 싫어하는 광고"</span>
@@ -554,16 +554,31 @@
             </div>
         </section>
 
-        <!-- ── AI CREATIVE LAB ── -->
         <section id="featured" style="padding-top: 20px;">
             <div style="margin-bottom: 2rem;">
-                <h2 style="margin-bottom: 0.5rem; font-size: 2rem;">AI Creative Lab</h2>
+                <h2 style="margin-bottom: 0.5rem; font-size: 2rem;">AI Creative</h2>
                 <p style="color:var(--text-muted); font-size:1rem;">
-                    생성형 AI(Generative AI) 도구를 활용한 영상 콘텐츠 기획 및 제작 실험
+                    생성형 AI를 활용해 브랜드 메시지를 영상 콘텐츠로 번역한 프로젝트
                 </p>
             </div>
             <div class="bento-grid">
-                <!-- Video 1: 탬버린즈 (최상단 배치 + 기획안 버튼) -->
+
+                <div class="bento-card col-span-4">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/ni4L0LDWrWU?si=CeO9fuqQ9Gih540I"
+                            title="무신사 무진장" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="video-content-box">
+                        <h3 style="color:var(--text-main); font-size:1.1rem; margin:0;">무신사-무진장</h3>
+                        <span class="award-pill badge-special">팬메이드 영상</span>
+                        <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.5;">
+                            패션 플랫폼의 감도와 속도감을 짧은 영상 문법으로 재해석한 팬메이드 프로젝트입니다. 브랜드 무드에 맞는 비주얼 톤과 리듬감을 설계해 스타일 중심의 콘텐츠로 풀어냈습니다.
+                        </p>
+                    </div>
+                </div>
+
                 <div class="bento-card col-span-4">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/gTDBkDT0z6A?si=p252UgABc48XdWz9"
@@ -573,23 +588,18 @@
                     </div>
                     <div class="video-content-box">
                         <h3 style="color:var(--text-main); font-size:1.1rem; margin:0;">TAMBURINS – Echo the Echo</h3>
-                        
-                        <div style="display:flex; gap:8px; align-items:center;">
+                        <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
                             <span class="award-pill badge-special">팬메이드 영상</span>
-                            <!-- 기획안 연결 버튼 -->
                             <a href="https://drive.google.com/drive/folders/1h4-Z3s2MvLg1QT_3J-ElSsdFKr4hf-qJ?usp=drive_link" target="_blank" class="doc-link-btn">
                                 <i class="fas fa-file-alt"></i> 기획안 보기
                             </a>
                         </div>
-
                         <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.5;">
-                            Echo the Echo 신규 컬렉션 기획안 및 티저 영상입니다.
-                            Kling, SUNO 등을 활용하여 감각적인 무드의 팬메이드 티저 영상을 제작하였습니다.
+                            향과 무드를 시청각적으로 번역하는 데 집중한 팬메이드 프로젝트입니다. 콘셉트 기획부터 비주얼 톤, 사운드, 영상 흐름까지 직접 설계하여 브랜드 감도를 콘텐츠로 구현했습니다.
                         </p>
                     </div>
                 </div>
 
-                <!-- Video 2: 아모레퍼시픽 — 아이디어상 -->
                 <div class="bento-card col-span-4">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/c0Klrff5vko?si=n1Bth1J9JQOBGAp_"
@@ -601,13 +611,11 @@
                         <h3 style="color:var(--text-main); font-size:1.1rem; margin:0;">아모레퍼시픽 — 보이지 않는 곳의 아름다움</h3>
                         <span class="award-pill badge-idea">아이디어상 수상</span>
                         <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.5;">
-                            예선·본선 심사를 통과하고 최종 PT 발표까지 직접 진행한 공모전 수상작입니다.
-                            브랜드의 진정성을 생성형 AI 영상으로 풀어내며 아이디어상을 수상했습니다.
+                            브랜드가 전하고자 하는 아름다움의 기준을 새로운 시선으로 재해석한 AI 영상 프로젝트입니다. 예선부터 본선 PT까지 직접 주도하며 메시지 설계와 콘텐츠 표현력을 함께 검증받았습니다.
                         </p>
                     </div>
                 </div>
                 
-                <!-- Video 3: Quiznos — 장려상 -->
                 <div class="bento-card col-span-4">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/0Cp4mJeq6Uc?rel=0"
@@ -619,13 +627,11 @@
                         <h3 style="color:var(--text-main); font-size:1.1rem; margin:0;">퀴즈노스 — Quiznos Playlist</h3>
                         <span class="award-pill badge-honorable">장려상 수상</span>
                         <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.5;">
-                            퀴즈노스의 신선한 이미지를 감각적인 비주얼과 사운드 플레이리스트 형식으로 연출하여
-                            장려상을 수상한 작품입니다.
+                            샌드위치 브랜드의 신선함과 리듬감을 플레이리스트 콘셉트로 풀어낸 콘텐츠입니다. 브랜드 이미지를 감각적인 화면 구성과 사운드 중심 연출로 연결해 장려상을 수상했습니다.
                         </p>
                     </div>
                 </div>
 
-                <!-- Video 4: 하루야채 — 대상 -->
                 <div class="bento-card col-span-4">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/d9bodJRO_RY?rel=0"
@@ -637,40 +643,29 @@
                         <h3 style="color:var(--text-main); font-size:1.1rem; margin:0;">한국야쿠르트 — 야채들이 싫어하는 회의</h3>
                         <span class="award-pill badge-grand">대상 수상</span>
                         <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.5;">
-                            기획부터 편집까지 생성형 AI(Midjourney, Runway, ElevenLabs)를 100% 활용하여 제작.
-                            브랜드 메시지를 위트 있는 스토리텔링으로 풀어내어 대상을 수상했습니다.
+                            건강 메시지를 무겁지 않게 전달하기 위해 위트 있는 스토리텔링 구조를 설계한 프로젝트입니다. 생성형 AI 툴을 활용해 기획부터 제작까지 일관된 톤을 완성했고, 대상 수상으로 이어졌습니다.
                         </p>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- ── CAREER ── -->
         <section id="career">
             <h2 style="margin-bottom: 3rem; font-size: 2rem;">Work Experience</h2>
             <div class="timeline">
-
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <span class="timeline-date">2022.08 - Present</span>
-                    <h3 class="timeline-role">Manager | Business Strategy Unit</h3>
+                    <h3 class="timeline-role">Content Planner / Business Strategy</h3>
                     <div class="timeline-company">메가존클라우드(주) (Megazone Cloud)</div>
                     <div class="timeline-desc">
-                        <p style="color:var(--text-main); margin-bottom:8px; font-weight:600;">Service Planning</p>
                         <ul>
-                            <li>Google Cloud 솔루션 기반 신규 AI, Data 서비스 기획 (NL2SQL)</li>
-                            <li>LLM 프롬프트 설계 및 제작, 컨텐츠 기획 (Gemini Gem 자동화)</li>
-                            <li>BigQuery Optimization 서비스 문서 제작</li>
-                            <li>Customer Success Management Service 정책 기획</li>
-                            <li>교육 플랫폼 서비스 기획 운영 (학습자 이수율 15% 증가 달성)</li>
-                            <li>경쟁사 서비스 분석 및 AI 트렌드 조사 (분기)</li>
-                            <li>Gemini API (Imagen, Veo), Add-E 등 AI를 활용한 서비스 기획</li>
-                            <li>SaaS, 하드웨어 구독 플랫폼 기획 (Figma, Adobe XD)</li>
-                        </ul>
-                        <p style="color:var(--text-main); margin:16px 0 8px; font-weight:600;">Marketing</p>
-                        <ul>
-                            <li>Cisco 파트너 컨텐츠 마케팅 (DV360, GA, Agency 핸들링)</li>
+                            <li>B2B IT 서비스의 메시지를 고객 관점의 콘텐츠로 재구성하고 제안서, 소개자료, 세일즈 문서를 기획</li>
+                            <li>Google Cloud 기반 AI/Data 서비스 오퍼링 콘텐츠 기획 및 스토리 구조 설계</li>
+                            <li>Gemini, Imagen, Veo 등 생성형 AI를 활용한 콘텐츠 실험 및 실무 적용</li>
+                            <li>교육 플랫폼 콘텐츠 운영으로 학습자 이수율 15% 증가</li>
+                            <li>Cisco 파트너 마케팅 콘텐츠 기획 및 광고 운영 지원 (DV360, GA, Agency 커뮤니케이션)</li>
+                            <li>기술, 영업, 운영 부서와 협업하여 복잡한 서비스를 고객이 이해하기 쉬운 메시지로 정리</li>
                         </ul>
                     </div>
                 </div>
@@ -678,15 +673,15 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <span class="timeline-date">2019.09 - 2022.08</span>
-                    <h3 class="timeline-role">Online Merchandiser</h3>
+                    <h3 class="timeline-role">Content & Commerce Planner</h3>
                     <div class="timeline-company">메가존(주) (Megazone)</div>
                     <div class="timeline-desc">
                         <ul>
-                            <li>라인프렌즈 외부몰/자사몰 운영 프로모션 기획 및 상품 관리</li>
-                            <li>KOICA 수아트리 등 15개 외부몰 담당 운영 및 프로모션 마케팅</li>
-                            <li>삼성 임직원 복지몰 입점 프로세스 기획 및 운영</li>
-                            <li>오픈마켓 별 프로모션 진행 및 SNS 마케팅 (롯데, G마켓, AK몰)</li>
-                            <li>제품 촬영 및 보정, 상세페이지 기획 제작</li>
+                            <li>라인프렌즈 자사몰 및 외부몰 프로모션 기획, 상품 운영, 콘텐츠 제작</li>
+                            <li>KOICA 수아트리 등 15개 외부몰 운영 및 시즌별 프로모션 콘텐츠 기획</li>
+                            <li>삼성 임직원 복지몰 입점 프로세스 기획 및 운영 커뮤니케이션</li>
+                            <li>오픈마켓·SNS 채널별 특성에 맞춘 마케팅 콘텐츠 운영</li>
+                            <li>제품 촬영, 보정, 상세페이지 기획으로 구매 전환에 필요한 시각 콘텐츠 제작</li>
                         </ul>
                     </div>
                 </div>
@@ -694,107 +689,101 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <span class="timeline-date">2019.03 - 2019.05</span>
-                    <h3 class="timeline-role">AMD | Online Planning Team</h3>
+                    <h3 class="timeline-role">Visual Content Planning</h3>
                     <div class="timeline-company">(주)제이엔지코리아</div>
                     <div class="timeline-desc">
                         <ul>
-                            <li>Jeep 룩북 제작 및 큐레이팅 사진 촬영</li>
-                            <li>Jeep 상품 썸네일 및 상세페이지 제작</li>
-                            <li>협찬 관리</li>
+                            <li>Jeep 룩북 콘텐츠 제작 및 큐레이션 촬영 지원</li>
+                            <li>상품 썸네일 및 상세페이지 제작으로 온라인 판매 콘텐츠 운영</li>
+                            <li>브랜드 비주얼 톤에 맞춘 협찬 및 스타일링 커뮤니케이션 수행</li>
                         </ul>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- ── PROJECTS ── -->
         <section id="projects">
             <h2 style="margin-bottom: 2rem; font-size: 2rem;">Key Projects & Insights</h2>
             <div class="bento-grid">
-
-                <div class="bento-card col-span-12 project-card">
-                    <div class="card-title">AI, Data 서비스 오퍼링 기획</div>
+                <div class="bento-card col-span-12">
+                    <div class="card-title">B2B AI/Data 서비스 콘텐츠 구조화</div>
                     <p class="card-desc" style="margin-bottom:1rem;">
-                        Google Cloud 기반 AI Agent ONE 오퍼링 개발 및 상용화 로드맵 설계.
-                        시장 조사부터 MVP 정의, 고객 인터뷰를 통한 핵심 기능 정의 수행.
+                        복잡한 AI·Data 서비스를 고객이 이해할 수 있는 언어와 흐름으로 재구성한 프로젝트입니다. 기능 설명이 아닌 고객 문제 해결 중심의 메시지 구조를 설계했습니다.
                     </p>
                     <div class="project-meta">
                         <div class="stat-box">
-                            <span class="stat-value">Success</span>
-                            <span class="stat-label">대기업 상용 도입 검증</span>
+                            <span class="stat-value">B2B</span>
+                            <span class="stat-label">서비스 메시지 구조화</span>
                         </div>
                         <div class="stat-box">
-                            <span class="stat-value">85%</span>
-                            <span class="stat-label">사용자 만족도 달성</span>
+                            <span class="stat-value">15%↑</span>
+                            <span class="stat-label">교육 콘텐츠 이수율</span>
                         </div>
                     </div>
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px;">
                         <div>
                             <h4 style="color:var(--text-main); margin-bottom:8px; font-size:0.95rem;">주요 성과</h4>
                             <ul class="card-list">
-                                <li>국내 대기업 대상 상용 도입 및 비즈니스 모델 검증 성공</li>
-                                <li>AI 기반 서비스 기획 및 제품화 로드맵 완성</li>
-                                <li>고객사 데이터 문해력 향상 및 사용 확산</li>
-                                <li>데이터 질의→결과 시각화 보고서 공유의 전체 여정 설계</li>
+                                <li>기술 중심 설명을 고객 중심 메시지로 전환</li>
+                                <li>서비스 소개 자료, 세일즈 콘텐츠, 운영 문서를 하나의 흐름으로 정리</li>
+                                <li>교육형 콘텐츠 운영을 통해 이해도와 이수율 개선</li>
+                                <li>내부 유관부서와의 협업으로 메시지 일관성 확보</li>
                             </ul>
                         </div>
                         <div class="retro-box" style="margin-top:0;">
                             <div class="retro-title">💡 Learning Points</div>
                             <div class="retro-content">
-                                <p>• <strong>서비스 세분화:</strong> Lite/Standard/Enterprise 단계별 오퍼링 모델을 미리 설계했다면 커뮤니케이션 효율을 높일 수 있었음.</p>
-                                <p>• <strong>시나리오 패키지:</strong> 도메인별(재무, 마케팅) Best Practice 패키지를 준비했다면 초기 Adoption 속도를 더 높일 수 있었음.</p>
+                                <p>• <strong>핵심 메시지 정리:</strong> 복잡한 서비스일수록 기능보다 고객의 문제와 사용 장면에서 출발해야 설득력이 높아진다는 점을 배웠습니다.</p>
+                                <p>• <strong>콘텐츠 구조화:</strong> 제안서, 세일즈 자료, 교육 콘텐츠가 분리되지 않고 하나의 퍼널로 연결되어야 한다는 점을 실무에서 체감했습니다.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="bento-card col-span-6 project-card">
-                    <div class="card-title">구독 서비스 플랫폼 기획</div>
+                <div class="bento-card col-span-6">
+                    <div class="card-title">브랜드 구독 플랫폼 콘텐츠 기획</div>
                     <p class="card-desc" style="margin-bottom:1rem;">
-                        브랜드 포지셔닝 및 디지털 마케팅 캠페인 운영, CX 최적화 프로젝트 리드.
+                        구독 서비스의 브랜드 포지셔닝과 고객 경험을 콘텐츠 관점에서 설계한 프로젝트입니다.
                     </p>
                     <ul class="card-list" style="margin-bottom:auto;">
-                        <li>브랜드 아키텍처 및 구독 모델 전략 수립</li>
-                        <li>온·오프라인 채널용 콘텐츠 제작 총괄</li>
-                        <li>구독 프로세스 단계별 고객 경험 매뉴얼 수립</li>
+                        <li>브랜드 아키텍처 및 구독 모델 메시지 정리</li>
+                        <li>온·오프라인 채널별 콘텐츠 제작 방향 수립</li>
+                        <li>구독 여정 단계별 고객 커뮤니케이션 구조 설계</li>
                     </ul>
                     <div class="retro-box">
                         <div class="retro-title">💡 Retrospective</div>
                         <div class="retro-content">
-                            <p>• <strong>KPI 정의:</strong> 핵심 지표(전환율, 유지율, ARPU)를 초기에 구체화하여 성과 관리를 명확히 해야 함을 학습.</p>
-                            <p>• <strong>A/B 테스트:</strong> 정성적 리서치 외에 정량적인 실험 설계가 더 체계적이어야 함.</p>
+                            <p>• <strong>KPI 설계:</strong> 전환율, 유지율, ARPU 등 콘텐츠가 기여해야 할 비즈니스 지표를 초기에 더 명확하게 정의할 필요를 배웠습니다.</p>
+                            <p>• <strong>실험 구조:</strong> 정성적 아이디어만이 아니라 A/B 테스트를 포함한 정량 실험 구조가 콘텐츠 기획에도 중요하다는 점을 확인했습니다.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="bento-card col-span-6 project-card">
-                    <div class="card-title">Cisco 파트너 마케팅</div>
+                <div class="bento-card col-span-6">
+                    <div class="card-title">Cisco 파트너 B2B 마케팅 콘텐츠</div>
                     <p class="card-desc" style="margin-bottom:1rem;">
-                        B2B 구독 플랫폼 F:it 웹사이트 기획 및 온·오프라인 통합 마케팅 실행.
+                        B2B 구독 플랫폼 F:it의 웹사이트와 마케팅 콘텐츠를 기획하며 퍼널 중심의 커뮤니케이션을 설계했습니다.
                     </p>
                     <ul class="card-list" style="margin-bottom:auto;">
-                        <li>방문자 이탈률 감소, 평균 체류 시간 15% 증가</li>
-                        <li>TOFU-MOFU-BOFU 퍼널별 콘텐츠 전략으로 전환율 15% 증가</li>
-                        <li>Google/Naver 검색 캠페인 최적화</li>
+                        <li>TOFU-MOFU-BOFU 단계별 콘텐츠 전략 수립</li>
+                        <li>방문자 이탈률 개선, 평균 체류 시간 15% 증가</li>
+                        <li>검색 캠페인 및 광고 채널 메시지 최적화</li>
                     </ul>
                     <div class="retro-box">
                         <div class="retro-title">💡 Retrospective</div>
                         <div class="retro-content">
-                            <p>• <strong>데이터 통합:</strong> 채널별 퍼포먼스 데이터 통합 관리 체계 및 리포트 자동화의 중요성 인식.</p>
-                            <p>• <strong>장기 전략:</strong> 초기 시각적 성과(조회수)에서 나아가 리드 Nurturing 중심의 장기 KPI 설계 필요성 체감.</p>
+                            <p>• <strong>퍼널 연결:</strong> 조회수 중심 콘텐츠보다 리드 전환과 육성까지 이어지는 구조 설계가 더 중요하다는 점을 배웠습니다.</p>
+                            <p>• <strong>데이터 활용:</strong> 채널별 성과 데이터를 통합적으로 보고 콘텐츠 방향을 조정하는 운영 체계의 필요성을 체감했습니다.</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- ── FOOTER ── -->
         <footer class="footer-section">
             <div class="container">
                 <div class="footer-cta-label">Vision to Reality</div>
-                <h2 class="footer-cta-title">내가 함께 꿈꾸던 모든 것,<br>현실로</h2>
+                <h2 class="footer-cta-title">브랜드의 문제를 콘텐츠로 풀고,<br>메시지를 성과로 연결합니다</h2>
 
                 <button class="contact-btn" onclick="copyEmail()">
                     함께 시작하기 <i class="fas fa-arrow-right"></i>
@@ -810,26 +799,24 @@
                 </div>
 
                 <div class="footer-copyright">
-                    <div>&copy; 2025 Dong Jun SONG.</div>
+                    <div>&copy; 2026 Dong Jun SONG.</div>
                     <div style="display:flex; gap:20px;">
-                        <a href="#" style="color:#555; text-decoration:none;">Portfolio</a>
-                        <a href="#" style="color:#555; text-decoration:none;">Resume</a>
+                        <a href="#home" style="color:#6e655d; text-decoration:none;">Portfolio</a>
+                        <a href="#about" style="color:#6e655d; text-decoration:none;">Profile</a>
                     </div>
                 </div>
             </div>
         </footer>
 
-    </div><!-- /container -->
+    </div>
 
     <script>
-        // ── Spotlight ──
         const spotlight = document.getElementById('spotlight');
         window.addEventListener('mousemove', e => {
             spotlight.style.setProperty('--x', `${e.clientX}px`);
             spotlight.style.setProperty('--y', `${e.clientY}px`);
         });
 
-        // ── Scroll Reveal ──
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -838,7 +825,6 @@
 
         document.querySelectorAll('section').forEach(s => observer.observe(s));
 
-        // ── Nav Active State ──
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
 
@@ -854,10 +840,8 @@
             });
         });
 
-        // ── Email Copy + Toast ──
         function copyEmail() {
             const email = 'songdj12@gmail.com';
-            // iFrame 호환성을 위해 execCommand('copy') 사용
             const el = document.createElement('textarea');
             el.value = email;
             document.body.appendChild(el);
